@@ -736,7 +736,7 @@ export default class BaseStreamController
     }
     // Remove back-buffer without interrupting playback to allow back tracking
     const currentTime = media.currentTime;
-    const bufferInfo = BufferHelper.bufferInfo(media, currentTime, 0);
+    const bufferInfo = BufferHelper.bufferInfo(media, currentTime, this.config.maxBufferHole);
     const fragDuration = frag.duration;
     const segmentFraction = Math.min(
       this.config.maxFragLookUpTolerance * 2,
